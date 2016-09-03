@@ -1,0 +1,25 @@
+<dom-module id="todos-group">
+    <template>
+        <style></style>
+        <div class="content-wrapper">
+          <h4>Current count: <span class="small">[[todos.length]]</span></h4>
+          <template is="dom-if" if="[[thereAreTodos]]" restamp>
+              <checkbox-clab id="todosCheckbox" labels="[[todos]]"></checkbox-clab>
+          </template>
+        </div>
+
+        <hr class="separate">
+
+        <div class="content-wrapper">
+          <h3>Archive</h3>
+          <h5>Current count: [[todosArchive.length]]</h5>
+          <template is="dom-if" if="[[thereAreArchive]]" restamp>
+            <ul>
+              <template is="dom-repeat" items="[[todosArchive]]">
+                <li><strike>[[item]]</strike></li>
+              </template>
+            </ul>
+          </template>
+        </div>
+    </template>
+</dom-module>

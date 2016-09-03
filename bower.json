@@ -1,0 +1,29 @@
+{
+  "name": "polymer-todo",
+  "description": "Really simple to-do app written with Polymer and contactlab-ui-components",
+  "main": "index.js",
+  "authors": [
+    "LasaleFamine"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "polymer",
+    "es6"
+    "todo",
+    "contactlab-ui-components"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clab-ui-components": "^1.0.0",
+    "polymer": "^1.6.1",
+    "fetch": "^1.0.0",
+    "es6-promise": "^3.2.2"
+  }
+}
