@@ -1,14 +1,12 @@
 
-
+// Include the build actions
+require('./gulpfile-build.js');
 
 var gulp = require('gulp-param')(require('gulp'), process.argv),
     connect = require('gulp-connect'),
     webpack = require('webpack-stream'),
     watch = require('gulp-watch'),
     webpackConfig = require('./webpack.config.js');
-
-
-
 
 
 // ### Actions
@@ -39,3 +37,6 @@ gulp.task('watch-npm', function(){
 });
 
 gulp.task('dev', ['connect','watch-npm']);
+
+// Runs the production build process
+gulp.task('build', ['super-build']);

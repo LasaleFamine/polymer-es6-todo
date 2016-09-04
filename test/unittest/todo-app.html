@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos-group test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <script src="./../../app/assets/bower/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="./../../app/assets/bower/web-component-tester/browser.js"></script>
+
+    <link rel="import" href="./../../app/assets/bower/polymer/polymer.html">
+
+    <link rel="import" href="./../../app/components/app/todo-app/view.html">
+
+    <!-- BUNDLE WITH ALL THE CLASSES -->
+    <script src="./../../app/bundle.js"></script>
+</head>
+
+<body>
+
+    <test-fixture id="todoApp">
+        <template>
+            <todo-app></todo-app>
+        </template>
+    </test-fixture>
+
+    <script>
+        suite('<todo-app>', function() {
+            var todoApp;
+
+            setup(function() {
+                todoApp = fixture('todoApp');
+            });
+
+            suite('Test Properties', function() {
+                test('Default Properties', function() {
+                    assert.equal(todoApp.input, '', 'input empty');
+                    assert.isArray(todoApp.todos, 'todos array');
+                    assert.isArray(todoApp.todosArchive, 'todosArchive array');
+                    assert.lengthOf(todoApp.todos, 3, 'todos');
+                    assert.lengthOf(todoApp.todosArchive, 0, 'todosArchive');
+                });
+            });
+
+            suite('Test Listeners', function() {
+              test('Check _checkValue()', function(done) {
+                  todoApp.$.todoInput.dispatchEvent(new Event('blur'));
+                  flush(function () {
+                    assert.equal(todoApp.$.todoInput.type, 'error');
+                    done();
+                  })
+
+              });
+            });
+
+            suite('Test Methods', function() {
+              test('Check addTodo() -> with value', function(done) {
+                  todoApp.input = "This is a todo";
+                  todoApp.addTodo();
+                  flush(function () {
+                    assert.equal(todoApp.todos[0], "This is a todo", 'Todo added correctly');
+                    done();
+                  });
+              });
+
+              test('Check addTodo() -> with NO value', function(done) {
+                  todoApp.todos = [];
+                  todoApp.addTodo();
+                  flush(function () {
+                    assert.lengthOf(todoApp.todos, 0, 'Todo NOT added correctly');
+                    done();
+                  });
+              });
+
+              test('Check removeTodo() -> with value checked', function(done) {
+                  flush(function () {
+                    todoApp.$.todosGroup.setActive([1]);
+                    todoApp.removeTodo();
+                    Polymer.dom.flush();
+                    assert.lengthOf(todoApp.todos, 2, "Correctly removed one of the default todos");
+                    done();
+                  });
+              });
+
+              test('Check selectAll()', function(done) {                  
+                  flush(function () {
+                    todoApp.selectAll();
+                    var currentActive = todoApp.$.todosGroup.getActive()
+                    assert.lengthOf(currentActive, 3, "Select all working");
+                    done();
+                  });
+              });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

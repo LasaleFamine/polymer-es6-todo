@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos-group test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <script src="./../../app/assets/bower/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="./../../app/assets/bower/web-component-tester/browser.js"></script>
+
+    <link rel="import" href="./../../app/assets/bower/polymer/polymer.html">
+
+    <link rel="import" href="./../../app/components/wrappers/todos-group/view.html">
+
+    <!-- BUNDLE WITH ALL THE CLASSES -->
+    <script src="./../../app/bundle.js"></script>
+</head>
+
+<body>
+
+    <test-fixture id="todosGroup">
+        <template>
+            <todos-group></todos-group>
+        </template>
+    </test-fixture>
+
+    <script>
+        suite('<todos-group>', function() {
+            var todosGroup;
+
+            setup(function() {
+                todosGroup = fixture('todosGroup');
+            });
+
+            suite('Test Properties', function() {
+                test('Default Properties', function() {
+                    assert.isFalse(todosGroup.thereAreTodos, 'thereAreTodos');
+                    assert.isFalse(todosGroup.thereAreArchive, 'thereAreArchive');
+                    assert.isArray(todosGroup.todos, 'todos array');
+                    assert.lengthOf(todosGroup.todos, 0, 'todos');
+                    assert.isArray(todosGroup.todosArchive, 'todosArchive array');
+                    assert.lengthOf(todosGroup.todosArchive, 0, 'todosArchive');
+                });
+            });
+
+
+
+            suite('Test Observers', function() {
+                test('Check _todoChanged()', function(done) {
+                    todosGroup.todos = ['this', 'are', 'todos']
+                    flush(function() {
+                        assert.isTrue(todosGroup.thereAreTodos);
+                        done();
+                    });
+                });
+                test('Check _todoArchiveChanged()', function(done) {
+                    todosGroup.todosArchive = ['this', 'are', 'todos']
+                    flush(function() {
+                        assert.isTrue(todosGroup.thereAreArchive);
+                        done();
+                    });
+                });
+            });
+
+            suite('Test Methods', function() {
+
+                test('Check setActive()', function(done) {
+                    todosGroup.todos = ['this', 'are', 'todos'];
+                    flush(function() {
+                        todosGroup.setActive([1, 2]);
+                        Polymer.dom.flush();
+                        var checkeds = todosGroup.$$('#todosCheckbox').querySelectorAll('input[type=checkbox]:checked');
+                        assert.lengthOf(checkeds, 2, 'Correct length checked');
+                        done();
+                    });
+
+                });
+
+                test('Check getActive()', function(done) {
+                    todosGroup.todos = ['this', 'are', 'todos'];
+                    flush(function() {
+                        todosGroup.setActive([1, 2]);
+                        Polymer.dom.flush();
+                        var checkeds = todosGroup.getActive();
+                        assert.lengthOf(checkeds, 2, 'Correct length checked');
+                        done();
+                    });
+
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
