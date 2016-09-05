@@ -2,8 +2,6 @@
 
 [![Build status](https://travis-ci.org/LasaleFamine/polymer-es6-todo.svg?branch=master)](https://travis-ci.org/LasaleFamine/polymer-es6-todo)
 
-:warning: ======  ***NOT READY (but it's question of details :eyes:)***  ===== :warning:
-
 > Very simple to-do application written in Polymer (ES6) complete of unit and integration test and build process.
 
 A support application born to be a good skeleton with all (maybe) the needed automation task within the `package.json` and handle by **NPM**.  
@@ -32,9 +30,13 @@ Unit tests are written with the [web-component-tester](https://github.com/Polyme
 
 Integration tests are an experiment with [Nightwatch](http://nightwatchjs.org/), [Cucumber](https://github.com/cucumber/cucumber-js) and the [nightwatch-cucumber](https://github.com/mucsi96/nightwatch-cucumber) module as handler for both.
 
-Unit test (with WCT)  
+Both Unit and Integration
 
     $ npm test
+
+Unit test (with WCT)  
+
+    $ npm test:local
 
 Integration test (nightwatch-cucumber)  
 
