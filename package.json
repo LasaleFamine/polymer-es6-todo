@@ -1,6 +1,6 @@
 {
   "name": "polymer-es6-todo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Really simple to-do app written with Polymer and contactlab-ui-components",
   "scripts": {
     "postinstall": "node nightwatch.conf.js",
