@@ -8,7 +8,7 @@
     "patch:major": "gulp bump --type major",
     "patch": "gulp bump",
     "build": "gulp build",
-    "test": "wct",
+    "test": "wct && gulp test:integration",
     "test:integration": "gulp test:integration"
   },
   "repository": {
