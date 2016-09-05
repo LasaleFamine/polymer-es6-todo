@@ -10,7 +10,6 @@ before_script:
   - npm install -g bower
   - bower install -f
   - xvfb-run npm run test:local
-  - xvfb-run npm run test:integration
 addons:
   firefox: latest
   apt:
