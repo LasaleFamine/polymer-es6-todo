@@ -1,6 +1,6 @@
 {
   "name": "polymer-es6-todo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Really simple to-do app written with Polymer and contactlab-ui-components",
   "scripts": {
     "postinstall": "node nightwatch.conf.js",
@@ -9,6 +9,7 @@
     "patch": "gulp bump",
     "build": "gulp build",
     "test": "wct && gulp test:integration",
+    "test:local": "wct",
     "test:integration": "gulp test:integration"
   },
   "repository": {
