@@ -36,7 +36,7 @@ Both Unit and Integration
 
 Unit test (with WCT)  
 
-    $ npm test:local
+    $ npm run test:local
 
 Integration test (nightwatch-cucumber)  
 
