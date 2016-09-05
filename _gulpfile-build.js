@@ -1,19 +1,17 @@
-/*
-Imports
-========================
-*/
-var gulp = require('gulp-param')(require('gulp'), process.argv),
-    rename = require("gulp-rename"),
+
+var gulp = require('gulp-param')(require('gulp'), process.argv);
+    minifyCSS = require('gulp-clean-css'),
+    imagemin = require('gulp-imagemin'),
+    vulcanize = require('gulp-vulcanize'),
+
+    webpackConfig = require('./webpack.config.js'),
+    webpack = require('webpack-stream'),
+    rename = require('gulp-rename'),
     path = require('path'),
     fs = require('fs'),
-    vulcanize = require('gulp-vulcanize'),
-    concat = require('gulp-concat'),
-    webpack = require('webpack-stream'),
-    webpackConfig = require('./webpack.config.js'),
-    minifyCSS = require('gulp-clean-css'),
-    gutil = require("gulp-util"),
-    imagemin = require('gulp-imagemin'),
     notify = require('gulp-notify');
+
+
 
 
 var conf = {

@@ -28,3 +28,10 @@ build/Release
 node_modules
 
 app/assets/bower
+tests_output/
+test/integration/reports
+test/integration/screenshots
+reports/
+dist/
+
+*.DS_Store

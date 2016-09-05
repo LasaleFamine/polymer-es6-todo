@@ -102,6 +102,10 @@
 	    value: function attached() {
 	      console.log("%cPolymer ES6 Todos!\n%cweb components are the <bees-knees> (in according with the Polymer team)", "font-size:1.5em;color:#4558c9;", "color:#d61a7f;font-size:1em;");
 	      this.set('todos', ['Lorem ipsume', 'This is a test todo', 'Another good test todo']);
+
+	      fetch('https://jsonplaceholder.typicode.com/comments').then(function (res) {
+	        console.log(res);
+	      });
 	    }
 	  }, {
 	    key: "_checkValue",

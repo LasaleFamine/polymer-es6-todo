@@ -1,7 +1,7 @@
 {
-  "name": "polymer-todo",
+  "name": "polymer-es6-todo",
   "description": "Really simple to-do app written with Polymer and contactlab-ui-components",
-  "main": "index.js",
+  "version": "0.0.1",
   "authors": [
     "LasaleFamine"
   ],

@@ -1,0 +1,20 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - 'node'
+  - '6'
+  - '5'
+  - '4'
+before_script:
+  - npm install -g bower
+  - bower install -f
+  - xvfb-run npm run test:local
+  - xvfb-run npm run test:integration
+addons:
+  firefox: latest
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
