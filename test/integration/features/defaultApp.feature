@@ -11,7 +11,7 @@ Scenario: Default elements on page
   And the todo input exists
   And 3 default todos are showing correctly
   And the footer text is "Crafted with clab-ui-components by LasaleFamine © MIT"
-  And the note text is "NOTE: this app is intended for personal testing purposes."
+  And the note text is "NOTE: this app is intended to personal testing purposes."
 
 Scenario: GitHub link is working
   And the github icon exists
