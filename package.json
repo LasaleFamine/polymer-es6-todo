@@ -44,6 +44,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-param": "^1.0.3",
     "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
     "gulp-vulcanize": "^6.1.0",
     "gulp-watch": "^4.3.9",
     "nightwatch": "^0.9.8",
